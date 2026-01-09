@@ -36,7 +36,7 @@ After each session, Attune provides reflective analytics:
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/attune.git
+   git clone https://github.com/dhruvjain2905/Attune.git
    cd attune
    ```
 
