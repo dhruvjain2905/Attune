@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+/* Theme colors - Warm & Elegant Palette */
+@theme {
+  --color-primary: #c2794e;
+  --color-primary-light: #d69270;
+  --color-accent: #d4a574;
+  --color-accent-warm: #e6b88a;
+}
+
+/* Base styles */
+body {
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #faf8f6;
+  background-image:
+    linear-gradient(rgba(194, 121, 78, 0.08) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(194, 121, 78, 0.08) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.font-display {
+  font-family: 'Caveat', cursive;
+  font-weight: 700;
+}
+
+.font-body {
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Custom gradient for chart */
+.chart-gradient {
+  fill: url(#chartGradient);
+}
+
+/* Animation for new session page */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Material Symbols Outlined default styles */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
