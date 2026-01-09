@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attune - AI-Powered Focus Alignment</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Material Symbols Outlined -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #faf8f6;
+            background-image:
+                linear-gradient(rgba(194, 121, 78, 0.08) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(194, 121, 78, 0.08) 1.5px, transparent 1.5px);
+            background-size: 20px 20px;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: #111418;
+        }
+
+        .font-display {
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.5rem 2.5rem;
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(194, 121, 78, 0.1);
+            color: #c2794e;
+            border-radius: 0.75rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+        }
+
+        .github-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 2px solid rgba(212, 165, 116, 0.4);
+            border-radius: 0.75rem;
+            color: #111418;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .github-link:hover {
+            background: rgba(212, 165, 116, 0.05);
+            border-color: #d4a574;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #637588;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        .hero-title {
+            font-size: 5rem;
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #111418;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #637588;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(to bottom right, #c2794e, #c2794e, #d69270);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(194, 121, 78, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(to bottom right, #d69270, #c2794e, #c2794e);
+            box-shadow: 0 20px 25px -5px rgba(194, 121, 78, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #111418;
+            border: 2px solid rgba(212, 165, 116, 0.4);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(212, 165, 116, 0.05);
+            border-color: #d4a574;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: #637588;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            color: #111418;
+            margin-bottom: 1rem;
+        }
+
+        .section-description {
+            font-size: 1.125rem;
+            color: #637588;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-icon.blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+        }
+
+        .feature-icon.purple {
+            background: rgba(168, 85, 247, 0.1);
+            color: #a855f7;
+        }
+
+        .feature-icon.orange {
+            background: rgba(194, 121, 78, 0.1);
+            color: #c2794e;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #111418;
+        }
+
+        .feature-description {
+            color: #637588;
+            line-height: 1.6;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 4rem 0;
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 4rem;
+            height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to bottom right, #c2794e, #d69270);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(194, 121, 78, 0.25);
+        }
+
+        .step-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #111418;
+        }
+
+        .step-description {
+            color: #637588;
+            line-height: 1.6;
+        }
+
+        /* Tech Stack Section */
+        .tech-stack {
+            padding: 4rem 0;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .tech-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .tech-item:hover {
+            border-color: #c2794e;
+            box-shadow: 0 4px 6px rgba(194, 121, 78, 0.1);
+        }
+
+        .tech-name {
+            font-weight: 700;
+            color: #111418;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-description {
+            font-size: 0.875rem;
+            color: #637588;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-box {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 1.5rem;
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-title {
+            font-size: 3rem;
+            font-family: 'Caveat', cursive;
+            font-weight: 700;
+            color: #111418;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            font-size: 1.125rem;
+            color: #637588;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: white;
+            border-top: 1px solid #e5e7eb;
+            padding: 2rem 0;
+            text-align: center;
+            color: #637588;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #637588;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: #c2794e;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .cta-title {
+                font-size: 2rem;
+            }
+
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-delay-1 {
+            animation-delay: 0.1s;
+            opacity: 0;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.2s;
+            opacity: 0;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.3s;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <div class="logo-icon">
+                <span class="material-symbols-outlined">mindfulness</span>
+            </div>
+            <span class="logo-text">Attune</span>
+        </div>
+        <a href="https://github.com/dhruvjain2905/Attune" class="github-link" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+            View on GitHub
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge animate-fade-in">
+                <span class="material-symbols-outlined" style="font-size: 1rem;">eco</span>
+                AI-Powered Focus Alignment
+            </div>
+            <h1 class="hero-title animate-fade-in animate-delay-1">
+                Attune
+            </h1>
+            <p class="hero-subtitle animate-fade-in animate-delay-2">
+                An AI-powered system for gently aligning attention with intention. Understand how your attention moves during focused work—without rigid tracking or judgment.
+            </p>
+            <div class="hero-buttons animate-fade-in animate-delay-3">
+                <a href="https://github.com/dhruvjain2905/Attune" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <span class="material-symbols-outlined">download</span>
+                    Get Started
+                </a>
+                <a href="https://github.com/dhruvjain2905/Attune#readme" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                    <span class="material-symbols-outlined">play_circle</span>
+                    Watch Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Features</p>
+                <h2 class="section-title">What Attune Does</h2>
+                <p class="section-description">
+                    Attune observes your screen activity and uses AI to detect moments of misalignment between intention and action.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon blue">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </div>
+                    <h3 class="feature-title">Silent Observation</h3>
+                    <p class="feature-description">
+                        Periodically captures screenshots and analyzes them to understand your current activity. If you're on-task, Attune stays silent.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </div>
+                    <h3 class="feature-title">Gentle Nudges</h3>
+                    <p class="feature-description">
+                        When clear distraction is detected, receive a subtle notification—not to enforce discipline, but to restore awareness.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon orange">
+                        <span class="material-symbols-outlined">insights</span>
+                    </div>
+                    <h3 class="feature-title">Reflective Analytics</h3>
+                    <p class="feature-description">
+                        After each session, view insights on when attention drifted, types of distractions, and how focus changed over time.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Process</p>
+                <h2 class="section-title">How It Works</h2>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Define Your Goal</h3>
+                    <p class="step-description">Start a session and state your intended task or focus area.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Work Naturally</h3>
+                    <p class="step-description">Attune runs quietly in the background while you work as usual.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Receive Nudges</h3>
+                    <p class="step-description">Get subtle notifications only when attention clearly diverges from your goal.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Review Insights</h3>
+                    <p class="step-description">End the session to explore your focus patterns and build better habits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section class="tech-stack">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">Technology</p>
+                <h2 class="section-title">Built With Modern Tools</h2>
+                <p class="section-description">
+                    A hybrid AI approach balancing privacy, nuance, and restraint.
+                </p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-name">FastAPI</div>
+                    <div class="tech-description">Modern Python API framework</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">Qwen 3-VL</div>
+                    <div class="tech-description">Local vision model via Ollama</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">Claude Sonnet 4</div>
+                    <div class="tech-description">Contextual focus classification</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">React</div>
+                    <div class="tech-description">Interactive UI framework</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">TailwindCSS</div>
+                    <div class="tech-description">Utility-first styling</div>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">SQLite</div>
+                    <div class="tech-description">Lightweight persistence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <h2 class="cta-title">Ready to Align Your Attention?</h2>
+                <p class="cta-description">
+                    Attune is open source and built for developers, writers, students, and researchers who want to understand their attention patterns—without surveillance or guilt.
+                </p>
+                <a href="https://github.com/dhruvjain2905/Attune" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                    <span class="material-symbols-outlined">download</span>
+                    Get Started on GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <span>Built with care for mindful productivity</span>
+                <span>•</span>
+                <a href="https://github.com/dhruvjain2905/Attune" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <span>•</span>
+                <span>MIT License</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
