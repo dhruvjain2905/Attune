@@ -32,7 +32,7 @@ These insights are designed to support understanding—not judgment.
 
 - Python 3.11+
 - Node.js 18+
-- [uv](https://github.com/astral-sh/uv) - Fast Python package installer and runner
+- [uv](https://docs.astral.sh/uv/getting-started/installation/#standalone-installer) - Fast Python package installer and runner
 - [Ollama](https://ollama.ai/) installed locally
 - Anthropic API key (from [console.anthropic.com](https://console.anthropic.com))
 
