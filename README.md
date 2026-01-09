@@ -3,9 +3,7 @@
 
 Attune helps you understand how your attention moves during focused work. Instead of rigid time tracking or manual categorization, Attune observes your screen activity and uses AI to detect moments of misalignment between what you intended to do and what you're actually doing.
 
-When that misalignment becomes clear, Attune offers a subtle nudge—not to enforce discipline, but to restore awareness.
-
-The goal isn't control. It's alignment.
+When that misalignment becomes clear, Attune offers a subtle nudge, restoring awareness.
 
 ---
 
@@ -21,8 +19,6 @@ After each session, Attune provides reflective analytics:
 - When and how often your attention drifted
 - The types of distractions that appeared
 - How your focus changed over time
-
-These insights are designed to support understanding—not judgment.
 
 ---
 
@@ -109,20 +105,14 @@ These insights are designed to support understanding—not judgment.
 - TailwindCSS
 - React Router
 
-### Why Attune Exists
+### Other Remarks
 
-Most productivity tools assume attention is something to be enforced.
+Attune uses a  hybrid AI approach balancing:
+- **Privacy** — screenshots are first interpreted locally through Qwen's VLM and are deleted immediately
+- **Nuance** — higher-level reasoning is then delegated to cloud language models through Claude API
+- **Restraint** — Attune only nudges when absolutely sure of distraction
 
-Attune treats attention as something to be observed.
-
-By combining local computer vision with goal-aware language models, Attune builds a high-level understanding of what's on your screen and whether it aligns with your stated intention. The system intervenes sparingly, prioritizing awareness over correction.
-
-This hybrid AI approach balances:
-- **Privacy** — screenshots are interpreted locally
-- **Nuance** — higher-level reasoning is delegated to language models
-- **Restraint** — Attune defaults to focus when uncertain
-
-Attune is built for developers, writers, students, and researchers who want to understand their attention patterns and build better work habits—without surveillance or guilt.
+Attune is built for developers, writers, students, and researchers who want to understand their attention patterns and build better work habits. 
 
 ---
 
@@ -134,4 +124,4 @@ MIT License
 
 ## Contributing
 
-Issues and pull requests are welcome. Attune is a learning-oriented project, and feedback on system design, AI prompting, UX, or the ethics of attention-aware systems is especially appreciated.
+Issues and pull requests are welcome. Thank you!
